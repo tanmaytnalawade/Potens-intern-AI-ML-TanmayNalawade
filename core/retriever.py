@@ -13,7 +13,7 @@ class Retriever:
     def retrieve(
         self,
         query,
-        n_results=3
+        n_results=5
     ):
 
         query_embedding = self.embedder.generate_embedding(
@@ -35,6 +35,14 @@ class Retriever:
             documents,
             metadatas
         ):
+
+            # Skip title-heavy first chunk
+            if metadata["chunk_id"] == 0:
+                continue
+
+            # Skip very small chunks
+            if len(document.strip()) < 100:
+                continue
 
             retrieved_chunks.append({
                 "content": document,

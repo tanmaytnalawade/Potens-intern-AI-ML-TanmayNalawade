@@ -27,6 +27,25 @@ class QuestionRequest(BaseModel):
 @router.post("/ask")
 def ask_question(request: QuestionRequest):
 
+    if not request.question.strip():
+
+        return {
+
+            "question": "",
+
+            "language": "en",
+
+            "answer": (
+                "I'm ready to answer your question "
+                "based on the provided context. "
+                "Please go ahead and ask your question."
+            ),
+
+            "confidence": None,
+
+            "citations": []
+        }
+
     detected_language = translator.detect_language(
         request.question
     )
@@ -59,6 +78,21 @@ def ask_question(request: QuestionRequest):
         retrieved_chunks
     )
 
+    # Simple confidence heuristic
+    confidence = round(
+        0.95 - (len(citations) * 0.01),
+        2
+    )
+
+    if (
+        "I could not find the answer"
+        in answer
+    ):
+
+        confidence = None
+
+        citations = []
+
     return {
 
         "question": request.question,
@@ -66,6 +100,8 @@ def ask_question(request: QuestionRequest):
         "language": detected_language,
 
         "answer": answer,
+
+        "confidence": confidence,
 
         "citations": citations
     }
