@@ -1,0 +1,51 @@
+[
+    {
+        "question": "What is Retrieval-Augmented Generation?",
+        "expected_answer": "RAG combines parametric and non-parametric memory for language generation."
+    },
+
+    {
+        "question": "What problem does RAG solve?",
+        "expected_answer": "RAG helps language models access external knowledge and reduce factual limitations."
+    },
+
+    {
+        "question": "What is the Transformer architecture?",
+        "expected_answer": "Transformer is a neural network architecture based on attention mechanisms."
+    },
+
+    {
+        "question": "What does the Transformer remove compared to older models?",
+        "expected_answer": "Transformer removes recurrence and convolution mechanisms."
+    },
+
+    {
+        "question": "What is self-attention in Transformers?",
+        "expected_answer": "Self-attention allows a model to focus on different parts of the input sequence."
+    },
+
+    {
+        "question": "What is ChromaDB used for?",
+        "expected_answer": "ChromaDB is used as a vector database for storing embeddings."
+    },
+
+    {
+        "question": "What are embeddings in RAG systems?",
+        "expected_answer": "Embeddings are vector representations of text used for semantic similarity search."
+    },
+
+    {
+        "question": "Why is chunk overlap important?",
+        "expected_answer": "Chunk overlap preserves context between neighboring chunks during retrieval."
+    },
+
+    {
+        "question": "What is semantic retrieval?",
+        "expected_answer": "Semantic retrieval finds relevant content based on meaning rather than exact keywords."
+    },
+
+    {
+        "question": "Why are citations important in RAG systems?",
+        "expected_answer": "Citations provide traceability and reduce hallucinations by showing document sources."
+    }
+]
