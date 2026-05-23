@@ -1,37 +1,18 @@
 from core.retriever import Retriever
-from core.llm import LLMService
 from services.citation_service import CitationService
-
-
-question = "What is Retrieval-Augmented Generation?"
 
 
 retriever = Retriever()
 
 retrieved_chunks = retriever.retrieve(
-    question
+    "What is Retrieval-Augmented Generation?"
 )
-
-
-llm = LLMService()
-
-answer = llm.generate_answer(
-    question=question,
-    retrieved_chunks=retrieved_chunks
-)
-
 
 citation_service = CitationService()
 
 citations = citation_service.generate_citations(
     retrieved_chunks
 )
-
-
-print("\nANSWER:\n")
-
-print(answer)
-
 
 print("\nCITATIONS:\n")
 
